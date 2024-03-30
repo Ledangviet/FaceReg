@@ -1,0 +1,30 @@
+.root {
+    margin: 0;
+}
+
+.nav-main {
+    background-color: red;
+}
+
+.main-container {
+    margin-top: 50px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+}
+
+.list-student-container {   
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 480px;
+    margin-left: 660px;
+    min-width: 500px;
+    width: 50%;
+}
+.main-webcam{
+    width: 640px;
+    height: 480px;
+    position: absolute;
+    left: 20px;
+}
