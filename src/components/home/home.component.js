@@ -133,6 +133,7 @@ export class HomeComponent extends React.Component {
                     </Container>
                 </Navbar>
                 <div className="main-container">
+                
                     <CameraComponent />
                     <div className="list-student-container">
                         <div className="student-list">
