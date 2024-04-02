@@ -161,6 +161,8 @@ export class HomeComponent extends React.Component {
                         </div>
                     </div>
                 </div>
+                <a id="link" >imglink</a>
+                <canvas id="newcanvas"></canvas>
             </div>
         );
     }

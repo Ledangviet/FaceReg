@@ -52,29 +52,43 @@ function CameraComponent(props) {
 
             //draw detected sign
             var ctx = backCanvas.getContext('2d');
+
+
             draw(prediction, ctx);
-
-
-
+                    
             if (face && !detected) {
+                
+
                 detected = true;
 
-                var backCanvas = document.getElementById('main-webcam');
-                backCanvas.width = videoWidth;
-                backCanvas.height = videoHeight;
+                //get face
+                if(prediction.length > 0){
+                    var newCanvas = document.createElement('canvas');
+                    var topLeft = prediction[0].topLeft;
+                    
+                    let x = topLeft[0];
+                    let y = topLeft[1];
+                    newCanvas.width = 170;
+                    newCanvas.height = 150;
+                    var context = newCanvas.getContext('2d');
+                    context.drawImage(video,x,y,170,150,0,0,170,150);
+    
+                    var faceData = newCanvas.toDataURL();
+    
+                    var img = document.getElementById('link');
+                    img.href = faceData;
 
-                backCanvas.getContext('2d')
-                    .drawImage(video, 0, 0, backCanvas.width, backCanvas.height);
-                var dataURL = backCanvas.toDataURL();
+                    let body = JSON.stringify({ 'base64Data': faceData.split(';base64,')[1] });
+                    axios.post('http://192.168.1.49:8080/process_post', body, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then((value) => {
+                        console.log(value);
+                    })
+                }
 
-                let body = JSON.stringify({ 'base64Data': dataURL.split(';base64,')[1] });
-                axios.post('http://192.168.1.49:8080/process_post', body, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }).then((value) => {
-                    console.log(value);
-                })
+                
             }
 
             if (prediction.length > 0) {
