@@ -22,6 +22,8 @@ function CameraComponent(props) {
     var face = false;
     var detected = false;
 
+    var date = new Date()
+
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
     const blazeface = require('@tensorflow-models/blazeface')
@@ -120,7 +122,7 @@ function CameraComponent(props) {
 
     return (
         <div className="camera-container">
-            <div className=".button-container">
+            <div className="button-container">
                 <button className="button-basic">Điểm danh</button>
                 <button className="button-basic">Nhận diện</button>
             </div>
@@ -148,8 +150,15 @@ function CameraComponent(props) {
                     <h6 id="lop" className="info-label"> 20DTH2</h6>
                 </div>
             </div>
-            
 
+            <div className="button-container-bottom">
+                <p>Số phòng : G205</p>
+                <div className="">
+                    <p className="time">Bắt đầu : {date.getHours()}:{(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()} </p> 
+                    <p className="time">Kết thúc : {date.getHours()}:{(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}</p>   
+                </div>
+                             
+            </div>
         </div>
     )
 
