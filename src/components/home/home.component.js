@@ -4,13 +4,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CameraComponent from "../camera/camera.component";
+import Logo from "../../images/logo.png"
 
 const studentList = [
     {
-        id: "00001",
-        name: "Nguyen Van A",
+        id: "162000388",
+        name: "Lê Đăng Việt",
         birthDay: "1-1-2002",
-        status: false,
+        status: true,
     },
     {
         id: "00002",
@@ -59,7 +60,7 @@ const studentList = [
         name: "Nguyen Van I",
         birthDay: "1-1-2002",
         status: false,
-    },{
+    }, {
         id: "00001",
         name: "Nguyen Van A",
         birthDay: "1-1-2002",
@@ -122,18 +123,23 @@ export class HomeComponent extends React.Component {
             <div className="root">
                 <Navbar expand="lg" className="bg-body-tertiary">
                     <Container>
-                        <Navbar.Brand href="#home">Face Recognition</Navbar.Brand>
+                        <Navbar.Brand href="#home"><img
+                            src={Logo}
+                            width="50"
+                            height="50"
+                            className="d-inline-block align-top"
+                            alt="Dai Hoc Cong Nghe Dong Nai"
+                        /></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link href="#home">Home</Nav.Link>
-                                <Nav.Link href="#link">Login</Nav.Link>
+                                <Nav.Link href="#home">Trang chủ</Nav.Link>
+                                <Nav.Link href="#link">Điểm danh</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
                 <div className="main-container">
-                
                     <CameraComponent />
                     <div className="list-student-container">
                         <div className="student-list">
@@ -141,8 +147,8 @@ export class HomeComponent extends React.Component {
                                 <thead style={{ position: "sticky", top: "0" }}>
                                     <tr>
                                         <th scope="col">Mssv</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Reg</th>
+                                        <th scope="col">Tên</th>
+                                        <th scope="col">Trạng thái</th>
                                     </tr>
                                 </thead>
                                 <tbody className="student-list-body">
@@ -162,7 +168,6 @@ export class HomeComponent extends React.Component {
                     </div>
                 </div>
                 <a id="link" >imglink</a>
-                <canvas id="newcanvas"></canvas>
             </div>
         );
     }

@@ -1,17 +1,79 @@
 .camera-container {
     margin-top: 20px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
 }
 
-#video {
-    height: 100%;
-    width: 100%;
+
+.button-basic{
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    margin-left: 5px;
+    background-color: #0ba6ff;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.61);
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.61);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.61);
+}
+
+.camera{
+    position: relative;
+}
+
+
+#front-canvas{
+    z-index: 1000;
+}
+
+.main-webcam{
+    top: 10px;
+    position: absolute;
+    width: 640px;
+    height: 480px;
     border-radius: 3px;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.61);
     -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.61);
     -moz-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.61);
 }
 
+.student-info{
+    margin-top: 10px;
+    width: 300px;
+    border: 1px solid black;
+    height: 480px;
+    position: absolute;
+    left: 660px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+}
+.img-label{
+    
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-#front-canvas{
-    z-index: 1000;
+.image{
+    border: 1px solid black;
+    height: 40%;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#face-img{
+    width: 100%;
+    height: 100%;
+}
+
+.info-label{
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
